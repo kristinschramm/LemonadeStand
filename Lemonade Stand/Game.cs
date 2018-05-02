@@ -12,10 +12,10 @@ namespace Lemonade_Stand
 
         // member variables (HAS A)
         List<string> menuOptions = new List<string>() { "Display Rules", "New Game", "Display Score" , "Display Inventory" , "End Game" };
-        int userInputInt;
-        //player
-        //store
-        //day
+        List<Player> players = new List<Player>();
+        Store store = new Store();
+        Day day = new Day();
+        int playerCountInt;
 
         //constructor
         public Game()
@@ -30,6 +30,7 @@ namespace Lemonade_Stand
             BeginGame();
             StartDay();
             EndDay();
+            Console.ReadKey();
         }
         private void CheckMenuInput(string inputString)
         {
@@ -60,7 +61,6 @@ namespace Lemonade_Stand
                     Console.WriteLine("Oops! Invalid entry. Try again.");
                     UI.DisplayMainMenu(menuOptions);
                     break;
-
             }
         }
         public void MainMenu()
@@ -73,13 +73,15 @@ namespace Lemonade_Stand
         public void Welcome()
         {
             Console.WriteLine("Welcome to your virtual Lemonade Stand");
-            MainMenu();
+            UI.DisplayRules();
         }
 
 
         public void BeginGame()
         {
             Welcome();
+            playerCountInt = UI.GetPlayerCount();
+            CreatePlayers();
 
         }
         private void StartDay()
@@ -98,7 +100,32 @@ namespace Lemonade_Stand
         }
         public void Quit()
         {
-
+            Welcome();
         }
+        public void CreatePlayers()
+        {
+            for (int i = 0; i < playerCountInt; i++)
+            {
+                players.Add(new Human());
+            }
+            for (int i = 0; i < players.Count; i++)
+            {
+                players[i].name = ("Player " + (i + 1));
+                players[i].name = players[i].SetPlayerName(players[i].name);
+                players[i].businessName = players[i].SetPlayerBusinessName(players[i].name);
+            }
+            Console.WriteLine("Would you also like to play against a computer?");
+            string yesNo = UI.GetUserInput();
+            if (yesNo == "yes")
+            {
+                players.Add(new AI());
+            }
+            else
+            {
+                return;
+            }
+        }
+        
+
     }
 }

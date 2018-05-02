@@ -6,9 +6,30 @@ using System.Threading.Tasks;
 
 namespace Lemonade_Stand
 {
-    class AI
+    class AI : Player
     {
         //random generate
+        public AI()
+        {
+            
+        }
+        public override string SetPlayerName(string name)
+        {
+            return name = "Larry";           
+        }
+        public override string SetPlayerBusinessName(string businessName)
+        {
+            return businessName = "Larry's Lemonade";
+        }
+        public override void SetLemonadePrice()
+        {
+
+        }
+
+        public override void SetLemonadeRecipe()
+        {
+
+        }
 
     }
 }

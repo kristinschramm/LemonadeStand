@@ -8,11 +8,24 @@ namespace Lemonade_Stand
 {
     class Inventory
     {
-        //cups
-        //ice
-        //lemons
-        //sugar
-        //money
-        //appreciation total
+        int cups;
+        int ice;
+        int lemons;
+        int sugar;
+        double money;
+        int satisfaction;
+
+        public Inventory()
+        {
+            cups = 0;
+            ice = 0;
+            lemons = 0;
+            sugar = 0;
+            money = 0;
+            satisfaction = 0;
+
+        }
+                    
+        
     }
 }

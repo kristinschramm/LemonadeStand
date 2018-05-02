@@ -61,6 +61,8 @@
     <Compile Include="Weather.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".vs\Lemonade Stand\v15\Server\sqlite3\db.lock" />
+    <None Include=".vs\Lemonade Stand\v15\Server\sqlite3\storage.ide" />
     <None Include="App.config" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\Lemonade Stand.csproj.CoreCompileInputs.cache" />
