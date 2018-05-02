@@ -11,7 +11,9 @@ namespace Lemonade_Stand
         //random generate
         public AI()
         {
-            
+            name = SetPlayerName(name);
+            businessName = SetPlayerBusinessName(businessName);
+
         }
         public override string SetPlayerName(string name)
         {

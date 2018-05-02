@@ -13,9 +13,10 @@ namespace Lemonade_Stand
         // member variables (HAS A)
         List<string> menuOptions = new List<string>() { "Display Rules", "New Game", "Display Score" , "Display Inventory" , "End Game" };
         List<Player> players = new List<Player>();
-        Store store = new Store();
-        Day day = new Day();
+        List<Day> days = new List<Day>();
+        Store store = new Store();        
         int playerCountInt;
+        public static Random random = new Random(); 
 
         //constructor
         public Game()
@@ -25,6 +26,8 @@ namespace Lemonade_Stand
         }
 
         //member methods
+        //store today's weather store in day list
+        //store tomorrow's weather store in day list
         public void RunGame()
         {
             BeginGame();
@@ -126,6 +129,11 @@ namespace Lemonade_Stand
             }
         }
         
+        public static int GetRandomNumber(int min, int max)
+        {
+            int randomValue = random.Next(min,max);            
+            return randomValue;
+        }
 
     }
 }

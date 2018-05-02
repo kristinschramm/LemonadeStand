@@ -8,6 +8,27 @@ namespace Lemonade_Stand
 {
     class Day
     {
+        // member variables
+        Weather weather = new Weather();
+        List<Customer> customers = new List<Customer>();
+
+        
+
+       //member constructors
+        public Day()
+        {
+            Console.WriteLine(weather.temperature);
+            Console.WriteLine(weather.sky);
+            CreateCustomers();
+
+        }
+
+        //member methods
+        public void CreateCustomers()
+        {
+
+        }
+
         //begin Day
             //read newspaper
             //go to store
