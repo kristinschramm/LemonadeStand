@@ -15,13 +15,13 @@ namespace Lemonade_Stand
             int inputInt = int.Parse(inputString);
             return inputInt;
         }
-        public static void DisplayMainMenu(List<string> menuOptions)
+        public static void DisplayMenu(List<string> menuOptions)
         {
-            for (int i=0; i<menuOptions.Count; i++)
+            for (int i = 0; i < menuOptions.Count; i++)
             {
                 Console.WriteLine("Press " + (i + 1) + " to choose " + menuOptions[i]);
             }
-       }
+        }
         public static void DisplayRules()
         {
             Console.WriteLine("- - - - - - - - - - - - - - - - - - -");
@@ -34,22 +34,22 @@ namespace Lemonade_Stand
             Console.WriteLine(" - Lastly, set your price and sell your lemonade at the stand.");
             Console.WriteLine(" - At the end of the game, you'll see how much money you made.");
             Console.WriteLine("Tips:  ");
-            Console.WriteLine(" 1.  Try changing up the price based on the weather conditions as well.");            
+            Console.WriteLine(" 1.  Try changing up the price based on the weather conditions as well.");
             Console.WriteLine(" 2.  Check the newspaper daily to see the weather forecast and helpful tips.");
             Console.WriteLine("- - - - - - - - - - - - - - - - - - -");
-            Console.WriteLine("Press 'm' at any point during the game to get the main menu.");            
+            Console.WriteLine("Press 'm' at any point during the game to get the main menu.");
             Console.WriteLine("Press 'q' at any point during the game to quit.");
             Console.WriteLine("- - - - - - - - - - - - - - - - - - -");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
-            Console.Clear();        
+            Console.Clear();
         }
         public static string GetUserInput()
         {
-            string inputString = Console.ReadLine();           
+            string inputString = Console.ReadLine();
             return inputString;
         }
-        
+
         public static void DisplayInventory()
         {
             Console.WriteLine("Which player's inventory would you like to display");
@@ -58,27 +58,13 @@ namespace Lemonade_Stand
         {
 
         }
-        public static string GetMainMenuInput()
+        public static string GetUserString(string message)
         {
-            string inputString = GetUserInput();
-            return inputString;
-
-        }
-
-        public static string GetPlayerName()
-        {
-            Console.WriteLine("Player please enter your name.");
+            Console.WriteLine(message);
             string inputString = GetUserInput();
             return inputString;
         }
-        public static string GetPlayerBusinessName()
-        {
-            Console.WriteLine("Player what would you like to call your Lemonade Stand.");
-            string inputString = GetUserInput();
-            return inputString;
-        }
-
-        public static void DisplayPlayerInventory( )// update when players are created
+        public static void DisplayPlayerInventory()// update when players are created
         {
             ////Console.WriteLine("Player here is your inventory");
             //Console.WriteLine("Cups: " + Inventory.cups);
@@ -90,24 +76,48 @@ namespace Lemonade_Stand
 
             //Console.WriteLine("{0} is something {1} is the other something", something, otherSomething);
             //Console.WriteLine($"This works too {something}");
-            
-        }
-
-        public static int GetPlayerCount()
-        {
-            Console.WriteLine("How many players are there?");
-            string playerCountString = GetUserInput();
-            int playerCountInt = ConvertUserInputToInt(playerCountString);
-            return playerCountInt;
-        }
-        public static int GetDayCount()
-        {
-            Console.WriteLine("How many days do you want to play?");
-            string dayCountString = GetUserInput();
-            int dayCountInt = ConvertUserInputToInt(dayCountString);
-            return dayCountInt;
 
         }
+        //display inventory
+
+        public static int GetInputInt(string message)
+        {
+            Console.WriteLine(message);
+            string inputString = GetUserInput();
+            int inputInt = ConvertUserInputToInt(inputString);
+            return inputInt;
+        }
+        public static int GetInputInt()
+        {
+            string inputString = GetUserInput();
+            int inputInt = ConvertUserInputToInt(inputString);
+            return inputInt;
+        }
+        public static int GetRandomNumber(int min, int max, Random random)
+        {
+            int randomValue = random.Next(min, max);
+            return randomValue;
+        }
+        public static int GetRandomNumber(int max, Random random)
+        {
+            int randomValue = random.Next(max);
+            return randomValue;
+        }
+        public static string GetRandomOption(List<string> options, Random random)
+        {
+            string randomOption;
+            int randomValue = random.Next(1, (options.Count + 1));
+            return randomOption = options[randomValue - 1];
+        }
+        public static void DisplayPurchaseMenu(List<int> itemQuantity, List<double> itemPrice, string type)
+        {
+            for (int i = 0; i < itemQuantity.Count; i++)
+            {
+                Console.WriteLine($"Press {i + 1} to purchase {itemQuantity[i]}  {type} for {itemPrice[i]}");
+            }
+        }
+
     }
+        
 
 }

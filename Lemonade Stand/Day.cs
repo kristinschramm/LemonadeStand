@@ -15,13 +15,15 @@ namespace Lemonade_Stand
         List<string> temperatures;
         List<string> skies;
         List<string> flavors;
+        List<string> inventoryItems;
         string flavorOftheDay;
         Random random;
 
        //member constructors
-        public Day(Random random)
+        public Day(List<string> inventoryItems, Random random)
         {
             this.random = random;
+            this.inventoryItems = inventoryItems;
             flavors = new List<string> { "Sweet", "Sour", "Just Right" };
             skies = new List<string> { "Sunny", "Cloudy", "Rainy" };
             temperatures = new List<string> { "Hot", "Cold" };            
@@ -38,12 +40,7 @@ namespace Lemonade_Stand
                 customers.Add(new Customer(temperatures, skies, flavors, random));
             }
         }
-        public string GenerateRandom(Random random, List<string> options)
-        {
-            string randomOption;
-            int randomValue = random.Next(1, (options.Count + 1));
-            return randomOption = options[randomValue - 1];
-        }
+        
 
         public int DetermineCustomerCount(Random random)
         {
@@ -95,6 +92,11 @@ namespace Lemonade_Stand
             else {
                 flavorOftheDay = "Just Right";
             }              
+        }
+        public void Shop()
+        {
+            UI.DisplayMenu(inventoryItems);
+
         }
         //begin Day
             //read newspaper

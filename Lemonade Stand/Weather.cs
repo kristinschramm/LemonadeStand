@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lemonade_Stand
 {
-    class Weather : Day { 
+    class Weather { 
         //member variables
         public string temperature;
         public string sky;
@@ -16,11 +16,11 @@ namespace Lemonade_Stand
         
         
         // constructor
-        public Weather(List<string> temperatures, List<string> skies, Random random) : base (random) {
+        public Weather(List<string> temperatures, List<string> skies, Random random)  {
             this.temperatures = temperatures;
             this.skies = skies;
-            temperature = GenerateRandom(random, temperatures);
-            sky = GenerateRandom(random, skies);
+            temperature = UI.GetRandomOption(temperatures, random);
+            sky = UI.GetRandomOption(skies, random);
             quality = DetermineWeatherQuality(temperature, sky);
          }      
 

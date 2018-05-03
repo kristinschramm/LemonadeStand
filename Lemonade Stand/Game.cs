@@ -13,8 +13,8 @@ namespace Lemonade_Stand
         // member variables (HAS A)
         List<string> menuOptions = new List<string>() { "Display Rules", "New Game", "Display Score" , "Display Inventory" , "End Game" };
         List<Player> players = new List<Player>();
-        List<Day> days = new List<Day>();        
-        Store store = new Store();        
+        List<Day> days = new List<Day>(); 
+        public List<string> inventoryItems = new List<string>() { "Lemons", "Cups of Sugar", "Cups", "Ice" };
         int playerCountInt;
         int dayCountInt;
         int dayNumber;
@@ -65,15 +65,15 @@ namespace Lemonade_Stand
                     break;
                 default:
                     Console.WriteLine("Oops! Invalid entry. Try again.");
-                    UI.DisplayMainMenu(menuOptions);
+                    UI.DisplayMenu(menuOptions);
                     break;
             }
         }
         public void MainMenu(List<string> menuOptions)
         {
             Console.WriteLine("This is the main menu.");
-            UI.DisplayMainMenu(menuOptions);
-            string userInputString= UI.GetMainMenuInput();
+            UI.DisplayMenu(menuOptions);
+            string userInputString= UI.GetUserInput();
             CheckMenuInput(userInputString);
         }
         public void Welcome()
@@ -84,9 +84,9 @@ namespace Lemonade_Stand
         public void BeginGame()
         {
             Welcome();
-            playerCountInt = UI.GetPlayerCount();
+            playerCountInt = UI.GetInputInt("Please enter the number of players.");
             CreatePlayers();
-            dayCountInt = UI.GetDayCount();
+            dayCountInt = UI.GetInputInt("Please enter the number of days you would like to play");
             CreateDays();
 
         }
@@ -94,12 +94,10 @@ namespace Lemonade_Stand
         {
 
         }
-
         private void EndDay()
         {
 
-        }
-        
+        }        
         public void EndGame()
         {
 
@@ -130,20 +128,14 @@ namespace Lemonade_Stand
             {
                 return;
             }
-        }
-        
-        public static int GetRandomNumber(int min, int max)
-        {
-            int randomValue = random.Next(min,max);            
-            return randomValue;
-        }
+        }                
         public void CreateDays()
         {
             for (int i = 0; i < dayCountInt; i++)
             {
-                days.Add(new Day(random));
+                days.Add(new Day(inventoryItems,random));
             }            
         }
-
+        
     }
 }

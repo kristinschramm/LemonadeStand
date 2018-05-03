@@ -8,10 +8,11 @@ namespace Lemonade_Stand
 {
     class Inventory
     {
+
         int cups;
         int ice;
-        int lemons;
-        int sugar;
+        List<Lemon> lemons;
+        List<Sugar> sugarCups;
         double money;
         int satisfaction;
 
@@ -19,12 +20,21 @@ namespace Lemonade_Stand
         {
             cups = 0;
             ice = 0;
-            lemons = 0;
-            sugar = 0;
+            lemons = new List<Lemon>();
+            sugarCups = new List<Sugar>();
             money = 0;
             satisfaction = 0;
 
         }
+
+        // for (int i=0; i<lemons.count, i++){
+        // if (lemons[i].age>3){
+        //lemons.removeAt[i]()
+        // i --;
+        // 
+    
+
+
                     
         
     }
