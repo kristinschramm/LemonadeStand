@@ -46,7 +46,7 @@ namespace Lemonade_Stand
         }
         public static string GetUserInput()
         {
-            string inputString = Console.ReadLine();
+            string inputString = Console.ReadLine();           
             return inputString;
         }
         
@@ -99,6 +99,13 @@ namespace Lemonade_Stand
             string playerCountString = GetUserInput();
             int playerCountInt = ConvertUserInputToInt(playerCountString);
             return playerCountInt;
+        }
+        public static int GetDayCount()
+        {
+            Console.WriteLine("How many days do you want to play?");
+            string dayCountString = GetUserInput();
+            int dayCountInt = ConvertUserInputToInt(dayCountString);
+            return dayCountInt;
 
         }
     }

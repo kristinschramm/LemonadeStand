@@ -13,29 +13,32 @@ namespace Lemonade_Stand
         // member variables (HAS A)
         List<string> menuOptions = new List<string>() { "Display Rules", "New Game", "Display Score" , "Display Inventory" , "End Game" };
         List<Player> players = new List<Player>();
-        List<Day> days = new List<Day>();
+        List<Day> days = new List<Day>();        
         Store store = new Store();        
         int playerCountInt;
+        int dayCountInt;
+        int dayNumber;
         public static Random random = new Random(); 
 
         //constructor
         public Game()
         {
-            RunGame();
-            
+            dayNumber = 0;
+                     
         }
 
         //member methods
-        //store today's weather store in day list
-        //store tomorrow's weather store in day list
+        
         public void RunGame()
         {
             BeginGame();
+            //while loop
             StartDay();
             EndDay();
+            EndGame();
             Console.ReadKey();
         }
-        private void CheckMenuInput(string inputString)
+        public void CheckMenuInput(string inputString)
         {
             switch (inputString)
             {
@@ -58,7 +61,7 @@ namespace Lemonade_Stand
                     Quit();
                     break;
                 case "m":
-                    MainMenu();
+                    MainMenu(menuOptions);
                     break;
                 default:
                     Console.WriteLine("Oops! Invalid entry. Try again.");
@@ -66,7 +69,7 @@ namespace Lemonade_Stand
                     break;
             }
         }
-        public void MainMenu()
+        public void MainMenu(List<string> menuOptions)
         {
             Console.WriteLine("This is the main menu.");
             UI.DisplayMainMenu(menuOptions);
@@ -78,13 +81,13 @@ namespace Lemonade_Stand
             Console.WriteLine("Welcome to your virtual Lemonade Stand");
             UI.DisplayRules();
         }
-
-
         public void BeginGame()
         {
             Welcome();
             playerCountInt = UI.GetPlayerCount();
             CreatePlayers();
+            dayCountInt = UI.GetDayCount();
+            CreateDays();
 
         }
         private void StartDay()
@@ -133,6 +136,13 @@ namespace Lemonade_Stand
         {
             int randomValue = random.Next(min,max);            
             return randomValue;
+        }
+        public void CreateDays()
+        {
+            for (int i = 0; i < dayCountInt; i++)
+            {
+                days.Add(new Day(random));
+            }            
         }
 
     }
