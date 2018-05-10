@@ -13,6 +13,18 @@ namespace Lemonade_Stand
         {
             
         }
+        public override void PurchaseItems(string item)//not complete
+        {
+
+        }
+        public override void SetLemonadePrice()//not complete
+        {
+
+        }
+        public override void SetLemonadeRecipe()//not complete
+        {
+
+        }
         public override string SetPlayerName(string player)
         {
             Console.WriteLine(player + ", please enter your name:");
@@ -26,16 +38,6 @@ namespace Lemonade_Stand
             Console.WriteLine($"{player} your business name is {businessName}\n");
             return businessName;
         }
-        public override void SetLemonadePrice()
-        {
-
-        }
-
-        public override void SetLemonadeRecipe()
-        {
-        
-        }
-
     }
 
 }

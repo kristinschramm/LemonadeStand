@@ -11,15 +11,24 @@ namespace Lemonade_Stand
         //member variables
         public string name;
         public string businessName;
-        Inventory inventory;
-        
+        public Inventory inventory;
+        public int daysWon;
+        public double dollarsEarned;
+        public double dollarsWasted;
+        public int customersServed;
+        public Recipe recipe = new Recipe();
+
+
 
         //constructor
         public Player()
         {
-            Inventory inventory = new Inventory();        
-        }
-        
+            inventory = new Inventory();
+            daysWon = 0;
+            dollarsEarned = 0;
+            dollarsWasted = 0;
+            customersServed = 0;
+        }        
 
         //member methods
 
@@ -35,11 +44,10 @@ namespace Lemonade_Stand
                 name = value;
             }
         }
-
+        public abstract void SetLemonadePrice();
+        public abstract void SetLemonadeRecipe();
+        public abstract void PurchaseItems(string items);
         public abstract string SetPlayerName(string player);
         public abstract string SetPlayerBusinessName(string player);
-        public abstract void SetLemonadeRecipe();
-        public abstract void SetLemonadePrice();
-        
     }
 }

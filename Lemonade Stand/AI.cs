@@ -15,22 +15,25 @@ namespace Lemonade_Stand
             businessName = SetPlayerBusinessName(businessName);
 
         }
+        public override void PurchaseItems(string items)//not complete
+        {
+            
+        }        
+        public override void SetLemonadePrice()//not complete
+        {
+
+        }
+        public override void SetLemonadeRecipe()//not complete
+        {
+
+        }
         public override string SetPlayerName(string name)
         {
-            return name = "Larry";           
+            return name = "Larry";
         }
         public override string SetPlayerBusinessName(string businessName)
         {
             return businessName = "Larry's Lemonade";
-        }
-        public override void SetLemonadePrice()
-        {
-
-        }
-
-        public override void SetLemonadeRecipe()
-        {
-
         }
 
     }

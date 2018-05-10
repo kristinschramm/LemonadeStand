@@ -8,21 +8,20 @@ namespace Lemonade_Stand
 {
     class Inventory
     {
-
-        int cups;
-        int ice;
-        List<Lemon> lemons;
-        List<Sugar> sugarCups;
-        double money;
+        public List<Lemon> lemons;
+        public List<Sugar> sugarCups;
+        public List<Ice> iceCubes;
+        public List<Cup> cups;
+        public double money;
         int satisfaction;
 
         public Inventory()
         {
-            cups = 0;
-            ice = 0;
+            cups = new List<Cup>();
             lemons = new List<Lemon>();
             sugarCups = new List<Sugar>();
-            money = 0;
+            iceCubes = new List<Ice>();
+            money = 20.00;
             satisfaction = 0;
 
         }

@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace Lemonade_Stand
 {
-    class Lemon
+    class Lemon : Item
     {
         //member variables
-        int age;
+        
+        
+        
 
         //constructor
 
         public Lemon()
         {
-            age = 0;
+           age = 0;
+           value = .30;
+           name = "lemon";
+           bundleQuantity = 10;
 
         }
     }

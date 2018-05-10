@@ -10,6 +10,7 @@ namespace Lemonade_Stand
     {
         //display today's weather
         //display tomorrow's weather
+        //display weather for next couple days
         //display preferred flavor
         //display yesterday's sales
             //if two player display's who was better 
