@@ -31,7 +31,7 @@ namespace Lemonade_Stand
             bool trueFalse = CheckPlayerMoney(player, bundle);
             if (trueFalse == true)
             {
-                if (bundle.name == "lemon")
+                if (bundle.name == "lemons")
                 {
                     for (int i = 0; i < bundle.quantity; i++)
                     {
@@ -39,7 +39,7 @@ namespace Lemonade_Stand
                     }
                     player.inventory.money -= bundle.bundleTotal;
                 }
-                else if (bundle.name == "cup of sugar")
+                else if (bundle.name == "cups of sugar")
                 {
                     for (int i = 0; i < bundle.quantity; i++)
                     {
@@ -47,7 +47,7 @@ namespace Lemonade_Stand
                     }
                     player.inventory.money -= bundle.bundleTotal;
                 }
-                else if (bundle.name == "cube of ice")
+                else if (bundle.name == "cubes of ice")
                 {
                     for (int i = 0; i < bundle.quantity; i++)
                     {
@@ -55,7 +55,7 @@ namespace Lemonade_Stand
                     }
                     player.inventory.money -= bundle.bundleTotal;
                 }
-                else if (bundle.name == "cup")
+                else if (bundle.name == "cups")
                 {
                     for (int i = 0; i < bundle.quantity; i++)
                     {

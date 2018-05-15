@@ -15,7 +15,7 @@ namespace Lemonade_Stand
         {
             age = 0;
             value = .10;
-            name = "cup of sugar";
+            name = "cups of sugar";
             bundleQuantity = 16;
         }
 

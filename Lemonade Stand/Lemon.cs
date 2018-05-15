@@ -19,7 +19,7 @@ namespace Lemonade_Stand
         {
            age = 0;
            value = .30;
-           name = "lemon";
+           name = "lemons";
            bundleQuantity = 10;
 
         }

@@ -17,6 +17,7 @@ namespace Lemonade_Stand
         public double dollarsWasted;
         public int customersServed;
         public Recipe recipe = new Recipe();
+        public double lemonadePrice;
 
 
 
@@ -28,6 +29,7 @@ namespace Lemonade_Stand
             dollarsEarned = 0;
             dollarsWasted = 0;
             customersServed = 0;
+            lemonadePrice = 1.75; //.toString("C");
         }        
 
         //member methods

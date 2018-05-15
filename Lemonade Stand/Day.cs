@@ -11,7 +11,7 @@ namespace Lemonade_Stand
         // member variables
         public Weather weather;
         Store store = new Store();
-        List<Customer> customers = new List<Customer>();
+        public List<Customer> customers = new List<Customer>();
         int customerCount;
         List<string> temperatures;
         List<string> skies;
@@ -19,6 +19,7 @@ namespace Lemonade_Stand
         List<string> inventoryItems;
         List<string> activityOptions;
         string flavorOftheDay;
+        
         Random random;
 
 
@@ -102,7 +103,7 @@ namespace Lemonade_Stand
                 flavorOftheDay = "Just Right";
             }
         }
-        public void Shop(Player player)//create shop within player class
+        public void Shop(Player player)
         {
             UI.DisplayMenu(inventoryItems);
             string userInput = UI.GetUserInput();
@@ -139,6 +140,7 @@ namespace Lemonade_Stand
         public void ChangeRecipe(Player player)
         {
             DisplayCurrentRecipe(player);
+            Console.WriteLine("The value of a cup of lemonade is {0}", player.recipe.cupLemonadeValue);
             List<string> ingredients = new List<string> { "lemons", "sugar", "ice cubes per cup" };
             UI.DisplayMenu(ingredients);
             string userInput = UI.GetUserInput();
@@ -236,15 +238,24 @@ namespace Lemonade_Stand
                 return flavorOftheDay = "Just Right";
             }
         }
-        //begin Day
-        //read newspaper
-        //go to store
+        public double SetDailyPrice(Player player)
+        {
+            Console.WriteLine("Would you like to change the price of a cup?");
+            string yesNo = UI.GetUserInput();
+            if (yesNo == "yes")
+            {
+                player.lemonadePrice = Double.Parse(UI.GetUserInput());
+            }
+                      
+            return player.lemonadePrice;
+        }
+        
         //sell Lemonade
         //sell out
         //end Day
         //report sales     
         //ice melt
         //inventory spoil chance        
-        //newspaper
+        
     }
 }

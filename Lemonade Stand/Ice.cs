@@ -14,7 +14,7 @@ namespace Lemonade_Stand
         {
             age = 0;
             value = .005;
-            name = "cube of ice";
+            name = "cubes of ice";
             bundleQuantity = 100;
 
         }

@@ -9,7 +9,6 @@ namespace Lemonade_Stand
     class Game
     {
         // member variables (HAS A)
-        //total customers count
         public static List<string> menuOptions = new List<string>() { "Display Rules", "New Game", "Display Score", "Display Inventory", "End Game" };
         public List<Player> players = new List<Player>();
         public List<Day> days = new List<Day>();
@@ -175,6 +174,11 @@ namespace Lemonade_Stand
         public void RunDay(Day day)
         {
             //foreach customer
+            foreach (Customer customer in day.customers)
+            {
+
+
+            }
             //determine purchase for each lemonade stand
             //decide if you want a customer to be done once it buys one or give each player equal chance
             //make lemonade pitchers
@@ -189,6 +193,7 @@ namespace Lemonade_Stand
                 Console.Clear();
                 Console.WriteLine($"Ready {players[i].name}? It's your turn to get ready for the day {dayNumber}.");
                 MorningRoutine(day, players[i]);
+                day.SetDailyPrice(players[i]);
             }
 
         }//not complete create foreach players

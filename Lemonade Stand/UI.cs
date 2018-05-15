@@ -40,7 +40,7 @@ namespace Lemonade_Stand
         {
             for (int i = 0; i < bundles.Count; i++)
             {
-                Console.WriteLine($"Press {i + 1} to purchase {bundles[i].quantity}  {bundles[i].name}s for {bundles[i].bundleTotal}");
+                Console.WriteLine($"Press {i + 1} to purchase {bundles[i].quantity}  {bundles[i].name} for {bundles[i].bundleTotal.ToString("C2")}");
             }
         }
         public static void DisplayRules()
