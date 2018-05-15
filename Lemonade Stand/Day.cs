@@ -317,7 +317,7 @@ namespace Lemonade_Stand
                 }
                 if (purchaseChance > 3)
                 {
-                    BuyLemonade();
+                    BuyLemonade(player);
                 }
                 else
                 {
@@ -330,15 +330,41 @@ namespace Lemonade_Stand
 
         public void BuyLemonade (Player player)
         {
-            CheckSupplyInventory();
+            
+            bool emptyInventory = CheckSupplyInventory(player); 
+            if (!emptyInventory)
+            {
+                cupCount --;
+                player.inventory.cups.Remove(player.inventory.cups[0]);
+                for (int i = 0; i < player.recipe.iceTotal; i++)
+                {
+                    player.inventory.iceCubes.Remove(player.inventory.iceCubes[i]);
+                }
+            }
+            else
+            {
+                SellOut();
+            }
 
         }
+
+        public bool CheckSupplyInventory(Player player)
+        {
+            if (player.inventory.cups.Count > 0 && player.inventory.iceCubes.Count > player.recipe.iceTotal)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         //sell Lemonade
-        
+
         //end Day
         //report sales     
         //ice melt
         //inventory spoil chance        
-        
+
     }
 }
