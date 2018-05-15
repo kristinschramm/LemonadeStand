@@ -12,7 +12,7 @@ namespace Lemonade_Stand
         public string favoriteFlavor;
         public string favoriteTemperature;
         public string favoriteSky;
-        public string priceVariance;
+        public double priceVariance;
         public string iceVariance;
         List<string> temperatures;
         List<string> flavors;
@@ -36,11 +36,12 @@ namespace Lemonade_Stand
 
         //member methods
         public void CreateCustomerPreferences() {
-            priceVariances = new List<string> { "10", "25", "50", "75" };
+            priceVariances = new List<string> { ".10", ".25", ".50", ".75" };
             favoriteTemperature = UI.GetRandomOption(temperatures, random);
             favoriteSky = UI.GetRandomOption(skies, random);
             favoriteFlavor = UI.GetRandomOption(flavors, random);
-            priceVariance = UI.GetRandomOption(priceVariances, random);
+            string priceVarianceString = UI.GetRandomOption(priceVariances, random);
+            priceVariance = double.Parse(priceVarianceString);
             iceVariance = UI.GetRandomOption(new List<string> { "1", "2", "3", "4" }, random);       
              
         }

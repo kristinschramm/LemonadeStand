@@ -19,8 +19,9 @@ namespace Lemonade_Stand
         List<string> inventoryItems;
         List<string> activityOptions;
         string flavorOftheDay;
-        
+        double cupCount;
         Random random;
+        bool soldOut = false;
 
 
         //member constructors
@@ -250,8 +251,90 @@ namespace Lemonade_Stand
             return player.lemonadePrice;
         }
         
+        public void MakeLemonade(Player player)
+        {
+            bool emptyInventory = CheckIngredients(player);
+            if (!emptyInventory)
+            {
+                cupCount = player.recipe.cupTotal;
+                for (int i = 0; i < player.recipe.lemonTotal; i++)
+                {
+                    player.inventory.lemons.Remove(player.inventory.lemons[i]);
+                }
+                for (int i = 0; i < player.recipe.sugarTotal; i++)
+                {
+                    player.inventory.sugarCups.Remove(player.inventory.sugarCups[i]);
+                }
+            }
+            else
+            {
+                SellOut();
+            }
+
+        }
+        public bool CheckIngredients(Player player)
+        {
+           if (player.inventory.lemons.Count > player.recipe.lemonTotal && player.inventory.sugarCups.Count > player.recipe.sugarTotal)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        
+        public void SellOut()
+        {
+            Console.WriteLine("You have sold out for the day!");
+            soldOut = true;
+        }
+    
+        public void SellLemonade(Player player)
+        {
+            for (int i = 0; i > customers.Count; i++)
+            {
+                int purchaseChance = 0;
+                if (customers[i].favoriteFlavor == player.recipe.flavor)
+                {
+                    purchaseChance++;
+                }
+                if (customers[i].favoriteSky == weather.sky)
+                {
+                    purchaseChance++;
+                }
+                if (customers[i].favoriteTemperature == weather.temperature)
+                {
+                    purchaseChance++;
+                }
+                if (customers[i].priceVariance < (player.recipe.reasonablePrice - player.lemonadePrice))
+                {
+                    purchaseChance++;
+                }
+                if (double.Parse(customers[i].iceVariance) < player.recipe.iceTotal)
+                {
+                    purchaseChance++;
+                }
+                if (purchaseChance > 3)
+                {
+                    BuyLemonade();
+                }
+                else
+                {
+                    return;
+                }
+
+                
+            }
+        }
+
+        public void BuyLemonade (Player player)
+        {
+            CheckSupplyInventory();
+
+        }
         //sell Lemonade
-        //sell out
+        
         //end Day
         //report sales     
         //ice melt
