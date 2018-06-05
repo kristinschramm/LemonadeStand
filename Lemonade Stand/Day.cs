@@ -19,7 +19,7 @@ namespace Lemonade_Stand
         List<string> inventoryItems;
         List<string> activityOptions;
         string flavorOftheDay;
-        double cupCount;
+        public double cupCount;
         Random random;
         bool soldOut = false;
 
@@ -288,6 +288,7 @@ namespace Lemonade_Stand
         {
             Console.WriteLine("You have sold out for the day!");
             soldOut = true;
+            //end day for player
         }
     
         public void SellLemonade(Player player)
@@ -318,10 +319,12 @@ namespace Lemonade_Stand
                 if (purchaseChance > 3)
                 {
                     BuyLemonade(player);
+                    player.customersServed++;
+
                 }
                 else
                 {
-                    return;
+                    player.customersMissed ++;
                 }
 
                 
@@ -350,6 +353,7 @@ namespace Lemonade_Stand
 
         public bool CheckSupplyInventory(Player player)
         {
+            
             if (player.inventory.cups.Count > 0 && player.inventory.iceCubes.Count > player.recipe.iceTotal)
             {
                 return false;

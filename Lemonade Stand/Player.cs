@@ -13,11 +13,12 @@ namespace Lemonade_Stand
         public string businessName;
         public Inventory inventory;
         public int daysWon;
-        public double dollarsEarned;
-        public double dollarsWasted;
-        public int customersServed;
+        public double dollarsEarned=0;
+        public double dollarsWasted= 0;
+        public int customersServed=0;
         public Recipe recipe = new Recipe();
         public double lemonadePrice;
+        public int customersMissed = 0;
 
 
 

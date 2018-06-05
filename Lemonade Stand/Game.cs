@@ -194,6 +194,7 @@ namespace Lemonade_Stand
                 Console.WriteLine($"Ready {players[i].name}? It's your turn to get ready for the day {dayNumber}.");
                 MorningRoutine(day, players[i]);
                 day.SetDailyPrice(players[i]);
+                DaySales(day, players[i]);
             }
 
         }//not complete create foreach players
@@ -247,6 +248,14 @@ namespace Lemonade_Stand
             {
                 return;
             }
+        }
+        public void DaySales(Day day, Player player)
+        {
+            if (day.cupCount < 1)
+            {
+                day.MakeLemonade(player);
+            }
+            day.SellLemonade(player);
         }
     }
 }

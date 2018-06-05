@@ -13,7 +13,7 @@ namespace Lemonade_Stand
         public List<Ice> iceCubes;
         public List<Cup> cups;
         public double money;
-        int satisfaction;
+        public int satisfaction;
 
         public Inventory()
         {
